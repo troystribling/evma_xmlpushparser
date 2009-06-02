@@ -1,3 +1,4 @@
+require 'rake/gempackagetask'
 
 spec = Gem::Specification.new do |s|
     s.name              = "evma_xmlpushparser"

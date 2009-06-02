@@ -2,7 +2,6 @@
 # Rakefile for the Bayshore configurable LDAP server.
 #
 
-require 'rake/gempackagetask'
 require 'rake/clean'
 
 $can_minitar = false
