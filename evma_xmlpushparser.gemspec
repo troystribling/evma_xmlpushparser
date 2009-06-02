@@ -1,5 +1,3 @@
-require 'rake/gempackagetask'
-
 spec = Gem::Specification.new do |s|
     s.name              = "evma_xmlpushparser"
     s.version           = "0.0.1"
@@ -12,7 +10,7 @@ spec = Gem::Specification.new do |s|
     s.extra_rdoc_files = ["README", "RELEASE_NOTES", "COPYING", "Rakefile"]
 
     # Exclude rdocs and any compiled shared objects which may be present.
-    s.files             = FileList["{ext,lib,test}/**/*"].exclude(/rdoc|\.so\Z/).to_a
+    s.files             = ["test/app.rb", "ext/extconf.rb", "ext/rubymain.cpp", "lib/evma_xmlpushparser.rb"]
 
     s.require_paths     = ["lib"]
     s.extensions        = "ext/extconf.rb"
@@ -21,16 +19,7 @@ spec = Gem::Specification.new do |s|
     s.email             = "garbagecat10@gmail.com"
     s.homepage          = "http://www.eventmachine.com"
 
-
-    description = []
-    File.open("README") do |file|
-	file.each do |line|
-	    line.chomp!
-	    break if line.empty?
-	    description << "#{line.gsub(/\[\d\]/, '')}"
-	    end
-	end
-    s.description = description[1..-1].join(" ")
+    s.description = "This is a Ruby extension which wraps the xmlParseChunk functionality of the Gnome libxml2 library."
 end
 
 
