@@ -1,6 +1,6 @@
 
 spec = Gem::Specification.new do |s|
-    s.name              = "eventmachine_xmlpushparser"
+    s.name              = "evma_xmlpushparser"
     s.version           = "0.0.1"
     s.summary           = "EventMachine XML Push Parser"
     s.platform          = Gem::Platform::RUBY

@@ -2,11 +2,8 @@
 # Rakefile for the Bayshore configurable LDAP server.
 #
 
-
 require 'rake/gempackagetask'
 require 'rake/clean'
-
-
 
 $can_minitar = false
 begin
@@ -21,11 +18,10 @@ $distdir  = "eventmachine_xmlpushparser-#{$version}"
 $tardist  = "#$distdir.tar.gz"
 $name = "eventmachine_xmlpushparser"
 
-
-spec = eval(File.read("eventmachine_xmlpushparser.gemspec"))
+spec = eval(File.read("evma_xmlpushparser.gemspec"))
 spec.version = $version
 desc "Build the RubyGem for EventMachine XML push-parser"
-task :gem => ["pkg/eventmachine_xmlpushparser-#{$version}.gem"]
+task :gem => ["pkg/evma_xmlpushparser-#{$version}.gem"]
 Rake::GemPackageTask.new(spec) do |g|
   if $can_minitar
     g.need_tar    = true
@@ -33,21 +29,6 @@ Rake::GemPackageTask.new(spec) do |g|
   end
   g.package_dir = "pkg"
 end
-
-
-specbinary = eval(File.read("eventmachine_xmlpushparser-binary.gemspec"))
-specbinary.version = $version
-desc "Build a binary RubyGem for EventMachine XML push-parser"
-task :gembinary => ["pkg/eventmachine_xmlpushparser-binary-#{$version}.gem"]
-Rake::GemPackageTask.new(specbinary) do |g|
-  if $can_minitar
-    g.need_tar    = true
-    g.need_zip    = true
-  end
-  g.package_dir = "pkg"
-end
-
-
 
 def run_test_package test, filename_array
   require 'test/unit/testsuite'
